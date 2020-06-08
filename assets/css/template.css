@@ -1,0 +1,1278 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+body{
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden; /* todo conteudo que ultrapassar horizontalmente sera "cortado" */
+}
+header {
+    height:100px;
+    background-color: black;
+    color:white;
+}
+.header{
+    max-width:1140px;
+    height:100px;
+    margin:auto;
+    display:flex;
+    align-items:center;
+}
+.logo{
+    width:100px;
+}
+.logoimg{
+    width:80px;
+    height:80px;
+    background-color:#b28756;
+    border-radius: 40px;
+}
+.menu-opener{
+    display: none;
+}
+.menu{
+    flex:1;
+    display: flex;
+    justify-content: flex-end;
+}
+.menu ul,
+.menu li {
+    list-style:  none;
+}
+.menu ul{
+    display:flex;
+}
+.menu li a{
+    color:white;
+    text-decoration: none;
+    font-weight:600;
+    padding-left:10px;
+    padding-right:10px;
+    display:flex;
+    height:100px;
+    align-items: center;
+    border-bottom:5px solid black;
+}
+.menu li a:hover,
+.menu .active a{
+    border-bottom:5px solid #b28756;
+    color:#ccc;
+}
+.button{
+    display:inline-block;
+    text-decoration: none;
+    text-transform:uppercase;
+    font-weight: bold;
+    color:white;
+    background-color: #b28756;
+    padding:10px 30px;
+    border-radius:25px;
+    margin-top:35px;
+    font-size: 12px;
+}
+/* CORRÇÃO DO PROF
+
+.button--dark {
+    background-color:#000;
+}
+.button--dark:hover {
+    background-color:#B28756;
+} */
+.banner{ /* campo responsavél por fazer o "corte/limite visual" da imagem do slide */
+    height:calc(100vh - 100px);
+    background-color: #333;
+    background-image: url("../images/bg.jpg");
+    background-size:cover;
+    background-position:bottom;
+    overflow:hidden; /* define que td que passar dos limites do elemento, vai ser ignorado, como se fosse cortado visualmente*/
+
+}
+.banner .sliders{ /* campo responsável por comportar todas as imagens do slide */
+    width:1000vw; /* supondo que nesse campo vamos ter 10 slides, com a largura de 100vw, então esse campo tem q ter a largura de 10 slides.*/
+    height:100%;
+}
+.banner .slide{ /* imagens do slide*/
+    width:100vw;  /* define que o slide terá a largura total da tela */
+    height:100%;
+    display:inline-block;
+    background-color:rgba(0,0,0, 0.7)
+}
+.banner .slidearea{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+    height:100%;
+    color:white;
+    
+}
+.banner h1{
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 50px;
+}
+.banner h1 span{
+    color:#b28756;
+}
+.banner h2{
+    text-transform:uppercase;
+    margin-top: 20px;
+}
+.banner .sliders-dots{
+    width:100vw; /* define que vai pegar toda a área do slide*/
+    height: 20px; /*aqui eu defino a altura que eu quero q esses pontos ocupem*/
+    position: absolute; /* sem essa propriedade o elemento fica abaixo do banner, colocamos um position:absolute para que ele ocupe um espaço, independente dos demais elementos(fica por cima)*/
+    margin-top: -50px; /* movendo o elemento para o local desejado*/
+    display: flex; /* colocamos um flex e essas prop para centralizar o elemento ↓↓↓*/
+    justify-content: center;
+    align-items: center; 
+}
+.banner .dot{
+    width:15px;
+    height:15px;
+    border-radius: 8px;
+    margin-right:5px;
+    margin-left:5px;
+    border: 2px solid #b28756;
+    cursor:pointer;
+}
+.banner .dot.active{
+    background-color: #b28756;
+}
+
+.default{
+    padding-top: 50px; /* ---- retirei o paddingtop daqui e transferi para o section-title para poder acertar o campo section social. O padding estava impossibilitanto que o topo colasse logo abaico da seção acima. */
+    padding-bottom: 50px;
+}
+.default .section-title,
+.default .section-desc{
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+.default .section-title{
+    font-size:30px;
+    /* padding-top:50px; --- não tem na correção do prof*/
+}
+.default .section-desc{
+    font-size:14px;
+    margin-top:10px;
+    margin-bottom:40px;
+    color:#ccc;
+}
+.default .section-body{
+    margin:auto;
+    max-width:1140px;
+}
+.default.light{
+    background-color: #f7f7f7;
+}
+.default.light .section-title,
+.default.light .section-body {
+    color:black;
+}
+.default.dark{
+    background-color: black;
+}
+.default.dark .section-title,
+.default.dark .section-body {
+    color:white;
+}
+
+
+
+
+/* CSS DE AREAS ESPECÍFICAS */
+
+
+.section-aboutus{
+    display:flex;
+}
+.aboutus-left{
+    flex:1;
+    
+}
+.aboutus-left p{
+    font-size:14px;
+    line-height:25px;
+}
+.aboutus-right{
+    /* MEU CÓDIGO FICOU DIFERENTE POQUE NÃO COLOQUEI UMA
+    IMAGEM PRA REPRESENTAR O VÍDEO, COLOQUEI AS ESPECIFICAÇÕES DIRETO NA DIV */
+    width:500px;
+    height:350px;
+    background-color: tomato;
+    box-shadow: 0px 5px 15px black;
+    margin-left: 20px;
+}
+
+/* SECTION SERVICES */
+
+.section-services{
+    display:flex;
+}
+.section-services .services-area{
+    flex:1;
+    text-align: center;
+    border-left:2px solid #333;
+    padding:15px;
+}
+.section-services:last-child{ /* aplicando efeito apenas em um alemento */
+    border-right:2px solid #333; 
+    
+}
+.services-area .services-title{
+    text-transform:uppercase;
+    font-size: 18px;
+    margin-top:30px;
+
+    /* especificações que eu coloquei
+
+    font-weight:bold;
+    margin-bottom: 10px; */
+}
+.services-area p{
+    margin-top:10px;
+    color:grey;
+    font-size: 12px;
+}
+
+/* SECTION OUR PROJECTS */
+.section-projects{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.nav-projects{
+    border:1px solid #ccc;
+    background-color:#eee;
+    border-radius:30px;
+    display:inline-block;
+    padding:0px 20px;
+   
+
+}
+.nav-projects ul,
+.nav-projects li{
+    list-style:none;
+
+}
+.nav-projects li{
+    display:inline-block;
+    padding:10px; /* primeiro valor(cima-baixo) seg (lados) */
+    text-transform: uppercase;
+    font-size:13px;
+    border-left: 1px solid #ccc;
+    color:#555;
+    border-bottom:3px solid #eee;
+}
+.nav-projects li:hover,
+.nav-projects li.active{
+    border-bottom:3px solid #b28756;
+}
+.nav-projects li:first-child{
+    border-left:0;
+    /* MEU CSS
+    border:none; */
+}
+
+/* SECTION OUR PROJECTS-GALERIA */
+.section-projects-photos{
+    width:100vw;
+    max-width: 1140px;
+    margin-top:20px;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content: center;
+    /*  MEU CSS- informação desnecessária
+    justify-content: space-between; */
+}
+.projects-photos{
+    width:280px;
+    
+}
+.projects-photo-area{
+    margin:10px;
+    width:260px;
+    height:160px;
+}
+.projects-photo-area img{
+    width:inherit; /* define que ele vai herdar o tamanho do item anterior ^^^ */
+    height:inherit;
+
+}
+.projects-photoinfo{
+    position: absolute;
+    background-color: rgba(0,0,0, 0.7);
+    width:inherit; /* define que ele vai herdar o tamanho do item anterior ^^^ */
+    height:inherit;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color:white;
+}
+.projects-photoinfo h5{
+    font-size: 18px;
+    font-weight:600;
+
+}
+.projects-photo-area:hover .projects-photoinfo{
+    display:flex;
+    
+}
+
+/* SECTION OUR TEAM*/
+
+.bg-team{
+    background-image: url('../images/bg.jpg');
+    background-size: cover;
+    background-position: center;
+    padding:0;
+}
+
+.section-team-area{
+    background-color:rgba(0,0,0, 0.7);
+    padding-top: 50px;
+    padding-bottom:50px;
+}
+.section-team{
+    overflow:hidden;
+    max-width:880px;
+    margin:auto;
+}
+
+.section-team .sliders{ /* campo responsável por comportar todas as imagens do slide */
+    width:1000vw; 
+    height:100%;
+}
+.section-team .slide{ /* imagens do slide*/
+    width:280px;
+    height:100%;
+    min-height:300px;
+    display:inline-block;
+    background-color:white;
+    margin-right:20px;  
+}
+.section-team .slidearea{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+    height:100%;
+    color:black;
+    padding:30px;
+}
+.section-team-area  .sliders-dots{
+    height: 20px; /*aqui eu defino a altura que eu quero q esses pontos ocupem*/
+    display: flex;  /* colocamos um flex e essas prop para centralizar o elemento ↓↓↓   */
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+ .section-team-area .dot{
+    width:15px;
+    height:15px;
+    border-radius: 8px;
+    margin-right:5px;
+    margin-left:5px;
+    border: 2px solid #b28756;
+
+}
+.section-team-area .dot.active{
+    background-color: #b28756;
+} 
+
+.section-team-avatar{
+    width:150px;
+    height:auto;
+}
+.section-team-name{
+    text-transform: uppercase;
+    font-size: 17px;
+    font-weight:600;
+    margin-top:30px;
+}
+.section-team-role{
+    font-size:14px;
+    margin-top:5px;
+    color:#999;
+    margin-bottom:20px;
+}
+.section-team-social{
+    display:flex;
+}
+.section-team-social a{
+    display:inline-flex;
+    justify-content: center;
+    align-items:center;
+    width:25px;
+    height:25px;
+    background-color:#CCC;
+    border-radius:13px;
+    margin-right:10px;
+
+    /* MEU CSS
+     display:inline-block;
+    width:25px;
+    height:25px;
+    background-color: #ccc;
+    border-radius: 20px;
+    text-align: center;
+    padding:3px; */
+}
+.section-team-social a:hover{
+    background-color: #b28756;
+}
+/* SECTION HAPPY CLIENTS */
+
+.testimonials .section-body {
+    max-width:initial;
+}
+ .section-happy-clients{
+     overflow:hidden;
+    /* MEU CSS 
+    max-width: 1140px;
+    margin:auto; */
+}
+ .section-happy-clients .sliders{ /*campo responsável por comportar todas as imagens do slide */
+    /* supondo que nesse campo vamos ter 10 slides, com a largura de 100vw, então esse campo tem q ter a largura de 10 slides. */
+    width:1000vw;  
+    height:100%;
+}
+ .section-happy-clients .slide{ /*imagens do slide */
+    width:100vw;  /* define que o slide terá a largura total da tela */
+    height:100%;
+    display:inline-block;
+    
+}
+.section-happy-clients .slidearea{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+    height:100%;
+    /* MEU CSS 
+    color:black;
+    max-width: 1140px; */
+   
+}
+.section-testimonials--avatar {
+    width:100px;
+}
+.section-testimonials--name {
+    font-weight: bold;
+    font-size:16px;
+    margin-top:20px;
+}
+.section-testimonials--role {
+    font-size:14px;
+}
+.section-testimonials--quoteimg {
+    width:20px;
+    margin-top:30px;
+}
+.section-testimonials--quote {
+    margin-top:10px;
+    font-size:13px;
+    max-width:700px;
+    color:#555;
+    text-align:center;
+    line-height:25px;
+    margin-left:30px;
+    margin-right:30px;
+}
+.section-happy-clients .sliders-dots {
+    width:100vw;
+    height:20px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin-top:40px;
+    
+
+    /* 
+    width:100vw; define que vai pegar toda a área do slide
+    height: 20px; aqui eu defino a altura que eu quero q esses pontos ocupem
+    position: absolute; sem essa propriedade o elemento fica abaixo do banner, colocamos um position:absolute para que ele ocupe um espaço, independente dos demais elementos(fica por cima)
+    margin-left: -112px; movendo o elemento para o local desejado
+    display: flex; colocamos um flex e essas prop para centralizar o elemento ↓↓↓
+    justify-content: center;
+    align-items: center;  */
+}
+.section-happy-clients .dot {
+    width:15px;
+    height:15px;
+    border:2px solid #B28756;
+    border-radius:8px;
+    margin-left:5px;
+    margin-right:5px;
+    cursor:pointer;
+    /* width:15px;
+    height:15px;
+    border-radius: 8px;
+    margin-right:8px;
+    margin-left:8px;
+    border: 2px solid #b28756; */
+}
+.section-happy-clients .dot.active {
+    background-color:#B28756;
+}
+
+/* MEU CSS 
+.section-clients-name{
+    text-transform: uppercase;
+    font-size: 19px;
+    font-weight:bold;
+    margin-top:30px;
+}
+.section-clients-role{
+    font-size:16px;
+    margin-top:4px;
+    margin-bottom:35px;
+    color:black;
+    font-weight:600;
+} 
+.slidearea p{
+    margin-top:20px;
+    text-align: center;
+    margin-bottom:50px;
+    color:#999;
+}*/
+
+/* SECTION PARCEIROS */
+.section-companies {
+    border-top:1px solid #DDD;
+    border-bottom:1px solid #DDD;
+}
+.section-companies--area {
+    display:flex;
+    align-items:center;
+}
+.section-company{
+    flex:1;
+    text-align: center;
+}
+/* MEU CSS: 
+.section-body.all{
+    background-color: white;
+    max-width: none;
+}
+.section-parceiros{
+    display:flex;
+    justify-content: space-between;
+    align-items:center;
+    padding: 50px 150px;
+    border-top: 1px solid #ccc;
+    border-bottom:1px solid #ccc;
+    box-shadow: 0px 1px 2px #ccc;
+} */
+
+/* SECTION PRICE */
+
+.section-price{
+    display: flex;
+    max-width:1140px;
+    margin:auto;
+}
+
+.squad-price{ /* fiz algumas correções quanto ao uso do flexbox para alinhar os itens */
+    width:280px;
+     flex:1; /*para que todos os squad-price ocupem o mesmo tamanho na tela. */
+    background-color:white;
+    margin-right:20px;  
+    text-align:center;
+}
+.squad-price h5{
+    text-transform:uppercase;
+    font-size: 17px;
+    font-weight:600;
+    padding:20px 0;
+}
+.squad-price .pricing-month{
+    text-transform: uppercase;
+    font-size:15px;
+    color:#ccc;
+    margin-bottom: 18px;
+}
+.squad-price .pricing{
+    font-size:37px;
+    font-weight: 700;
+}
+.squad-price p{
+    font-size: 13px;
+    padding:6px;
+}
+.bar{
+    width:14px;
+    height:1px;
+    background-color: #333;
+    margin-top:5px;
+    margin-bottom:5px;
+    margin:auto;
+}
+.squad-price .button{
+    background-color: #333;
+    margin-bottom: 20px;
+}
+.squad-price .button:hover,
+.button.active{
+    background-color:#b28756;
+}
+/* SECTION PREMIUM */
+.premium{
+    background-color: white !important;
+}
+.premium .section-body {
+    max-width:initial;
+}
+.section-premium{
+    overflow:hidden;
+}
+.section-premium a {
+    /* margin-top:30px; */
+}
+ .section-premium .sliders{ /* campo responsável por comportar todas as imagens do slide  */
+     width:1000vw; /*supondo que nesse campo vamos ter 10 slides, com a largura de 100vw, então esse campo tem q ter a largura de 10 slides. */
+    height:100%;
+}
+ .section-premium .slide{ /*imagens do slide */
+    width:100vw;  /* define que o slide terá a largura total da tela */
+    height:100%;
+    display:inline-block;
+}
+.section-premium .slidearea {
+    display:flex;
+    height:100%;
+    justify-content: center;
+    align-items:center;
+    max-width:1140px;
+    border-bottom:1px solid #CCC;
+    margin:auto;
+    padding-bottom:40px;
+}
+.premium-left {
+    flex:1;
+    text-align:right;
+}
+.premium-left img {
+    width:300px;
+    margin-right:30px;
+}
+.premium-right {
+    flex:1;
+}
+.squad-premium {
+    display:flex;
+    margin-bottom:20px;
+}
+.squad-premium img {
+    width:20px;
+    height:20px;
+    margin-right:20px;
+}
+.squad-premium div {
+    flex:1;
+    color:#999;
+    line-height:20px;
+}
+.squad-premium div h4 {
+    color:#000;
+    font-size:17px;
+    font-weight:600;
+}
+/* MEU CSS:
+.section-premium{
+    max-width: 1140px;
+    margin:auto;
+    overflow:hidden;
+}
+.section-premium .sliders{  campo responsável por comportar todas as imagens do slide 
+    width:1000vw; supondo que nesse campo vamos ter 10 slides, com a largura de 100vw, então esse campo tem q ter a largura de 10 slides.
+    height:100%;
+}
+.section-premium .slide{ imagens do slide
+    width:100vw;  /* define que o slide terá a largura total da tela 
+    height:100%;
+    display:inline-block;
+}
+.section-premium .slidearea{
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    height:100%;
+    max-width: 1140px;
+}
+.squads-faces{
+    display: flex;
+    max-width: 800px;
+    border-bottom: 1px solid #ccc;
+}
+.premium-left,
+.premium-right {
+    flex:1;
+    margin-top:20px;
+    margin-bottom:40px;
+}
+
+.premium-right .squad-premium{
+    display: flex;
+}
+.squad-premium .sub-squad{
+    margin-left: 30px;
+    color:#999;
+    font-size: 14px;
+}
+.squad-premium .section-premium-title{
+    text-align: start;
+    margin-bottom:10px;
+    margin-top:10px;
+    font-size: 25px;
+    color:black;
+    text-transform: uppercase;
+    font-weight: 600;
+} */
+.section-premium .sliders-dots{
+    width:100vw;
+    height: 20px; /*aqui eu defino a altura que eu quero q esses pontos ocupem*/
+    display: flex;  /* colocamos um flex e essas prop para centralizar o elemento ↓↓↓   */
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+}
+.section-premium .dot{
+    width:15px;
+    height:15px;
+    border-radius: 8px;
+    margin-right:5px;
+    margin-left:5px;
+    border: 2px solid #b28756;
+
+}
+.section-premium  .dot.active{
+    background-color: #b28756;
+}
+
+
+.section-somefacts{
+    display:flex;
+}
+.section-somefacts .somefacts-area{
+    flex:1;
+    text-align: center;
+    border-left:2px solid #333;
+    padding:15px;
+}
+.somefacts-area h2{
+    font-size: 53px;
+    color:#b28756;
+}
+.somefacts-area .bar-somefacts{
+    width:20px;
+    height:4px;
+    background-color: #999;
+    margin:auto;
+}
+.somefacts-area .somefacts-title{
+    text-transform:uppercase;
+    font-size: 18px;
+    font-weight:bold;
+    margin-top:30px;
+    margin-bottom: 10px;
+}
+.somefacts-area p{
+    color:grey;
+    font-size: 12px;
+    line-height: 26px;;
+}
+/* SECTION SOCIAL */
+.section-share {
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    padding:20px;
+    background-color:#FFF;
+    color:#999;
+}
+.section-share--legend {
+    display:flex;
+    align-items:center;
+    margin-right:40px;
+}
+.section-share--legend img {
+    margin-right:10px;
+}
+.section-share--item {
+    font-size:12px;
+    margin-right:20px;
+    display:flex;
+    align-items:center;
+    cursor:pointer;
+}
+.section-share--icon {
+    width:30px;
+    height:30px;
+    border-radius:15px;
+    background-color:#CCC;
+    margin-right:5px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.section-share--icon img {
+    height:12px;
+}
+.section-share--icon.twitter {
+    background-color:#34c5f0;
+}
+.section-share--icon.linkedin {
+    background-color:#127cb4;
+}
+.section-share--icon.facebook {
+    background-color:#336297;
+}
+.section-share--icon.googleplus {
+    background-color:#e74237;
+}
+.section-share--icon.pinterest {
+    background-color:#b71c29;
+}
+
+/* MEU CSS: 
+.section-socialarea{
+    width:initial;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    padding: 25px;
+    border-bottom: 1px solid #ccc;
+}
+.section-socialarea h5{
+    padding:0 17px;
+    font-size: 14px;
+    color:#999;
+    text-transform: uppercase;
+}
+.section-socialarea a{
+    padding-right:20px;
+    filter:invert(1)
+} */
+/*
+FIZ O FILTRO DE PROJECTS COM <BUTTOM>
+.nav-projects a{
+    text-decoration: none;
+    color:black;
+    text-transform: uppercase;
+    font-size:17px;
+    padding:25px;
+    background-color: #d4d3d3;
+    /* text-align: center;
+    width: 175px; 
+    border-right: 1px solid #333;
+}
+.nav-projects a:first-child{
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+.nav-projects a:last-child{
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    border-right: none;
+} /*
+/* SECTION CONTACT */
+.section-contact {
+    max-width:450px;
+    margin:auto;
+    text-align:center;
+}
+.section-contact input[type=text],
+.section-contact textarea {
+    display:block;
+    width:100%;
+    height:40px;
+    border:0;
+    background:transparent;
+    border-bottom:1px solid #CCC;
+    outline:0;
+    margin-top:10px;
+}
+.section-contact textarea {
+    height:100px;
+    resize:none;
+}
+.section-contact--split {
+    display:flex;
+}
+.section-contact--split input:first-child {
+    margin-right:20px;
+}
+.section-map{
+   background-image: url("../images/mapa.jpg");
+    background-size:cover;   /*para que a imagem pegue toda a area disp*/ 
+    background-position: center;
+    padding-top:30px;
+    padding-bottom:30px;
+    
+}
+.section-map-area{
+    width:100vw;
+    max-width:1140px;
+    margin:auto;
+    
+}
+.section-map-info{
+    width:50%;
+    padding:30px;
+    background-color: white;
+    color:black;
+}
+.section-map-info-item{
+    display:flex;
+    align-items: center;
+    color:#999;
+    margin-bottom: 10px;
+}
+.section-map-info-item div{
+    width: 30px;
+    height: 30px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding:5px;
+    background-color: #999;
+    border-radius:15px;
+    margin-right:15px;
+}
+.section-map-info-item img{
+    width: 15px;
+}
+/* SECTION FOOTER */
+.footer{
+    padding:20px;
+}
+.section-footer-area{
+    display:flex;
+     margin:auto;
+}
+.section-footer-conteudo {
+    display: flex;
+    flex:1;
+    padding:0 10px;
+    justify-content: center;
+}
+.section-footer-social-icon{
+    width:30px;
+    height:30px;
+    border-radius:15px;
+    background-color:#999;
+    margin-right:5px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.section-footer-social-icon img{
+    height:10px;
+}
+.footer-social .section-footer-social-icon:hover {
+    background-color: #b28756;
+
+}
+.section-footer-subscribe form {
+    background-color:#333;
+    text-align:center;
+    padding:30px;
+}
+.section-footer-subscribe input{
+    width:100%;
+    height:40px;
+    border:0;
+    background:transparent;
+    border-bottom:2px solid #ccc;
+    padding:10px;
+    text-align: center;
+    outline: 0;
+}
+/* AREA FOOTER QUE O PROFESSOR FEZ 
+
+.footer{
+    background-color:#000;
+    padding:20px;
+}
+.footer--area {
+    max-width:1140px;
+    margin:auto;
+    color:#FFF;
+    display:flex;
+}
+.footer--item {
+    flex:1;
+}
+.footer-social {
+    display:flex;
+}
+.footer-social a {
+    display:block;
+    width:25px;
+    height:25px;
+    background-color:#333;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    border-radius:13px;
+    margin-right:10px;
+}
+.footer-social a:hover {
+    background-color:#B28756;
+}
+.footer-social img {
+    height:10px;
+}
+.footer--item.area2 {
+    color:#999;
+    line-height:20px;
+    font-size:13px;
+    padding:0 10px 10px 10px;
+}
+.footer--item.area3 form {
+    background-color:#333;
+    text-align:center;
+    padding:30px;
+}
+.footer--item.area3 input {
+    width:100%;
+    height:40px;
+    border:0;
+    background:transparent;
+    border-bottom:1px solid #CCC;
+    outline:0;
+    color:#FFF;
+    font-size:14px;
+    text-align:center;
+}
+*/
+/* RESPONSIVIDADE */
+@media (min-width:450px) and (max-width:800px){
+    .menu-opener{
+        display: inline-block;
+        width:40px;
+        margin-right: 40px;
+    }
+    .logo{
+        margin-left:40px;
+    }
+    nav{
+        display:none;
+        position:absolute;
+        z-index:99;   /*para que o item fique acima, no topo da página */
+        background-color: rgba(0,0,0, 0.9);
+        width:70vw; /* defino que terá 70% do tamanho de toda a tela. Podemos colocar o valor em porcentagem */
+        height:calc(100vh - 100px);
+        top:100px; /* 100px é o height do nav *(a faixa preta)*/
+        right:0; /*para colar o elemento a esquerda da tela */
+
+    }
+    .menu ul{
+        flex-direction:column;
+    }
+    .menu li a{
+        font-weight: bold;
+        height:80px;
+        font-size:27px;
+        margin-left:50px;
+        border: 0;
+    }
+    .menu li a:hover,
+    .menu .active a {
+        color:#b28756;
+        border:0;
+    }
+    .section-aboutus {
+        flex-direction: column;
+    }
+    .aboutus-right {
+        margin:auto;
+    }
+    .aboutus-left {
+        margin-left:30px;
+        margin-right:30px;
+        margin-bottom:30px
+    }
+    .section-services{
+        flex-wrap: wrap;
+    }
+    .services-area{
+        min-width:50%;
+        margin-bottom:30px;
+    }
+    .services-area:first-child{
+        border-left:0;
+    }
+    .section-team{
+        max-width:580px;
+        /* 580 porque a área do slide tem:
+        width: 280px; e margin-right: 20px; 
+        como queremos colocar dois slids por vez,
+        somamos o total de 2 slides: 280+280=560px
+        + 20 de margin right = 580px*/
+    }
+
+    /* OPÇÕES PARA A AREA DO MAPA */
+    .section-map{
+        padding-left: 30px;
+        padding-right: 30px;
+        
+    }
+    .section-map-info{
+        width:auto;
+    }
+    .section-map-area{
+        width:auto;
+    }
+    .section-map-info-item{
+        margin-bottom:25px;
+    }
+    .section-map-info-item:last-child{
+        margin-bottom:0;
+    }
+}
+@media (max-width:450px){
+    .logo{
+        margin-left:40px;
+    }
+    .menu-opener{
+        display: inline-block;
+        width:30px;
+        margin-right: 40px;
+    }
+    nav{
+        display:none;
+        position:absolute;
+        z-index:99;   /*para que o item fique acima, no topo da página */
+        background-color: rgba(0,0,0, 0.9);
+        width:70vw; /* defino que terá 70% do tamanho de toda a tela. Podemos colocar o valor em porcentagem */
+        height:calc(100vh - 100px);
+        top:100px; /* 100px é o height do nav *(a faixa preta)*/
+        right:0; /*para colar o elemento a esquerda da tela */
+
+    }
+    .menu ul{
+        flex-direction:column;
+    }
+    .menu li a{
+        font-weight: bold;
+        height:60px;
+        font-size:20px;
+        margin-left:30px;
+        border: 0;
+    }
+    .menu li a:hover,
+    .menu .active a {
+        color:#b28756;
+        border:0;
+    }
+    .banner h1{
+        font-size:30px;
+    }
+    .banner h2{
+        font-size:17px;
+    }
+    .section-aboutus{
+        flex-direction:column;
+    }
+    .aboutus-left {
+        margin-left:25px;
+        margin-right:25px;
+        margin-bottom:30px;
+        font-size: 17px;
+    }
+    
+    .aboutus-right{
+        width:300px;
+        height:200px;
+        margin:auto;
+    }
+    .section-services{
+        flex-wrap: wrap;
+    }
+    .services-area{
+        min-width:100%;
+    }
+    .nav-projects {
+    margin-left:30px;
+    margin-right:30px;
+    }
+    .projects-photos {
+        width: 320px;
+    }
+    .projects-photo-area {
+        width: 300px;
+        height:190px;
+    }
+    .section-team{
+        max-width:280px;
+    }
+    .section-price{
+        flex-wrap: wrap;
+    }
+    .squad-price{
+        min-width: 80%;
+        margin-bottom: 20px;
+        margin-left: 20px;
+        margin-right:20px;
+    }
+    .squad-price:last-child{
+        margin-bottom: 0;
+    }
+    .section-premium .slidearea{
+        flex-direction: column;
+    }
+    .premium-left {
+        width: 100%;
+    }
+    .premium-right{
+        margin-top: 40px;
+        margin-left: 20px;
+        margin-right:20px;
+    }
+    .section-somefacts {
+        flex-direction:column;
+    }
+    .section-share {
+        display: none;
+    }
+    .section-contact {
+        padding: 25px;
+    }
+
+    .section-map{
+        padding:0;
+        padding-bottom:250px;
+        
+    }
+    .section-map-info{
+        width:auto;
+    }
+    .section-map-area{
+        width:auto;
+    }
+    .section-map-info-item{
+        margin-bottom:25px;
+    }
+    .section-map-info-item:last-child{
+        margin-bottom:0;
+    }
+
+    .section-footer-area {
+        flex-direction: column;
+    }
+    .section-footer-conteudo {
+        margin-left:30px;
+        margin-right:30px;
+        margin-top:40px;
+    }
+    .section-footer-conteudo:first-child {
+        margin-top:0;
+    }
+}
